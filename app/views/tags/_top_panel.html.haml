@@ -17,6 +17,9 @@
         = fa_icon 'check'
       = link_to '#', title: 'Cancel editing this hub tag description', id: 'cancel-tag-description', class: 'hidden' do
         = fa_icon 'close'
+      - if @old_tag_description.present?
+        %p
+          We found a tag description tied to a deprecated tag for this new tag: #{@old_tag_description.inspect}. #{link_to 'Apply This Description', title: 'Apply this description.', id: 'apply-old-description'}
   - elsif tag_description.present?
     %p
       %span#readonly-tag-description
